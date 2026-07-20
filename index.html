@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -85,17 +85,21 @@
   td.cell-strong { font-weight:700; white-space:nowrap; }
   td.cell-team { font-weight:700; color:#8F5400; }
   td.cell-nowrap { white-space:nowrap; }
-  td.cell-text { line-height:1.4; }
+  td.cell-text { line-height:1.4; font-size:14px; }
   .arrow { font-size:12px; color:#6B6864; }
 
   tr.box-score { display:none; }
   tr.box-score.open { display:table-row; }
   tr.box-score > td { padding:14px 18px; border-bottom:2px solid #8F5400; }
   .box-title { font-weight:700; font-size:13px; color:#8F5400; margin-bottom:6px; }
-  .box-score ul { margin:0 0 10px 0; padding-left:18px; line-height:1.55; font-size:13px; }
-  .box-meta { font-size:13px; }
+  .box-score ul { margin:0 0 10px 0; padding-left:18px; line-height:1.55; font-size:14px; }
+  .box-meta { font-size:14px; }
   .box-meta + .box-meta { margin-top:6px; }
   .box-meta b { font-weight:700; }
+  .box-why { font-size:14px; font-style:italic; color:#6B6864; line-height:1.5;
+    border-left:3px solid #8F5400; padding:2px 0 2px 12px; margin:0 0 10px; }
+  .box-why b { font-weight:700; font-style:normal; color:#8F5400; }
+  .box-why + .box-meta { margin-top:0; }
 
   .awards-list { border-top:1px solid #DAD8D6; }
   .award { padding:11px 4px; border-bottom:1px solid #E5E3E1; font-size:14px; }
@@ -114,7 +118,7 @@
     table.stats thead { display:none; }
     table.stats, table.stats tbody, table.stats tr, table.stats td { display:block; width:100%; box-sizing:border-box; }
     tr.stat-row { border:1px solid #DAD8D6; border-left:3px solid #8F5400; padding:8px 12px; margin-top:10px; }
-    table.stats td { padding:2px 0; white-space:normal; }
+    table.stats td { padding:2px 0; white-space:normal; font-size:14px; }
     table.stats td[data-label]::before { content:attr(data-label) ": "; font-weight:700; color:#8F5400; font-size:11px; letter-spacing:0.4px; }
     table.stats tr.box-score { display:none; }
     table.stats tr.box-score.open { display:block; border:1px solid #DAD8D6; border-top:0; }
@@ -220,7 +224,7 @@
           <td data-label="Pos">Software Engineer Intern</td>
           <td class="cell-nowrap" data-label="Location">Agoura Hills, CA</td>
           <td data-label="Tech">C#, .NET, gRPC, Playwright, React</td>
-          <td class="cell-text" data-label="Summary">Worked on core test infrastructure for the UltraFlex semiconductor test platform, bridging its legacy .NET software with modern tooling over gRPC and expanding automated test coverage for its IG-XL software.</td>
+          <td class="cell-text" data-label="Summary">Bridged IG-XL&rsquo;s legacy .NET codebase with modern tooling over gRPC and expanded its automated test coverage, working on Teradyne&rsquo;s UltraFLEX test program software.</td>
           <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-teradyne">Box Score <span class="arrow">&#9656;</span></button></td>
         </tr>
         <tr class="box-score" id="box-teradyne" style="background:#F0EFED;">
@@ -270,22 +274,7 @@
         <tr><th scope="col">PROJECT</th><th scope="col">STACK</th><th scope="col">SUMMARY</th><th scope="col" aria-label="Box score"></th></tr>
       </thead>
       <tbody>
-        <tr class="stat-row row-even" data-toggle="music-tracker">
-          <td class="cell-team" data-label="Project">Music Listening and Release Tracker</td>
-          <td data-label="Stack">FastAPI (Python), React Native, PostgreSQL, Spotify Web API</td>
-          <td class="cell-text" data-label="Summary">A mobile app that tracks listening history and upcoming releases by syncing with Spotify in the background.</td>
-          <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-music-tracker">Box Score <span class="arrow">&#9656;</span></button></td>
-        </tr>
-        <tr class="box-score" id="box-music-tracker" style="background:#FFFFFF;">
-          <td colspan="4">
-            <div class="box-title">Box Score</div>
-            <ul>
-              <li>Built FastAPI backend with dual authentication (Spotify OAuth + JWT) and automatic token refresh for seamless session continuity.</li>
-              <li>Engineered fault-tolerant data synchronization service with retry logic and exponential backoff, achieving a 99% successful sync rate despite intermittent Spotify API failures.</li>
-            </ul>
-          </td>
-        </tr>
-        <tr class="stat-row row-odd" data-toggle="dungeon-crawler">
+        <tr class="stat-row row-even" data-toggle="dungeon-crawler">
           <td class="cell-team" data-label="Project">Dungeon Crawler</td>
           <td data-label="Stack">Unity, C#</td>
           <td class="cell-text" data-label="Summary">A Unity dungeon crawler with pathfinding-driven enemy AI and persistent save states. Owned the core gameplay systems on a 5-person team.</td>
@@ -299,6 +288,60 @@
               <li>Implemented a save/load system persisting full game state across sessions using Unity&rsquo;s JsonUtility.</li>
               <li>Shipped a complete dungeon crawler on itch.io (500+ downloads), owning core gameplay systems end-to-end across a 5-person cross-functional team.</li>
             </ul>
+            <div class="box-why"><b>Why I built it:</b> I grew up playing dungeon crawlers and wanted to understand the systems I had been taking for granted. It turns out enemy AI is much harder to write than it is to outsmart.</div>
+          </td>
+        </tr>
+        <tr class="stat-row row-odd" data-toggle="fantasy-bball">
+          <td class="cell-team" data-label="Project">Fantasy Basketball Predictor</td>
+          <td data-label="Stack">Python, scikit-learn, XGBoost, Optuna, NBA API</td>
+          <td class="cell-text" data-label="Summary">A machine learning pipeline that projects next-season fantasy stats for every NBA player, from raw NBA API data through a tuned per-stat model ensemble.</td>
+          <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-fantasy-bball">Box Score <span class="arrow">&#9656;</span></button></td>
+        </tr>
+        <tr class="box-score" id="box-fantasy-bball" style="background:#FFFFFF;">
+          <td colspan="4">
+            <div class="box-title">Box Score</div>
+            <ul>
+              <li>Built an 18-stage pipeline spanning NBA API data collection (24 seasons), feature engineering (lag, derived, and availability features), model training, and prediction generation.</li>
+              <li>Trained models for 12 target stats across five approaches (linear, random forest, XGBoost, position-specific XGBoost, and stacking), with an Optuna-tuned ensemble that selects the best approach per stat.</li>
+              <li>Enforced strict temporal train/validation/prediction splits, deriving ensemble weights from 5-fold cross-validation on training data only to prevent leakage, and built an evaluation harness that scores projections against actual season results.</li>
+            </ul>
+            <div class="box-why"><b>Why I built it:</b> Born out of my own fantasy league. I got tired of drafting on gut feel, so I wanted to find out whether 24 seasons of data could out-draft all of us. The scoring formula in the code is my league&rsquo;s, down to the last turnover penalty.</div>
+            <div class="box-meta"><b>Link:</b> <a href="https://github.com/IsaacPressman/fantasy_basketball_predictor" target="_blank" rel="noopener">View on GitHub</a></div>
+          </td>
+        </tr>
+        <tr class="stat-row row-even" data-toggle="allergy-app">
+          <td class="cell-team" data-label="Project">Allergy-Safe Restaurant App</td>
+          <td data-label="Stack">React Native (Expo), Express (TypeScript), PostgreSQL, Prisma</td>
+          <td class="cell-text" data-label="Summary">An iOS app that helps people with food allergies decide where to eat out, turning structured community reviews into personalized restaurant safety ratings.</td>
+          <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-allergy-app">Box Score <span class="arrow">&#9656;</span></button></td>
+        </tr>
+        <tr class="box-score" id="box-allergy-app" style="background:#FFFFFF;">
+          <td colspan="4">
+            <div class="box-title">Box Score</div>
+            <ul>
+              <li>Structured a TypeScript monorepo with an Expo React Native iOS app, an Express API, and a shared types package that keeps the API contract in sync across both.</li>
+              <li>Designed a modular backend (users, restaurants, reviews, scoring, and moderation) using a router/service/repository pattern with Prisma on PostgreSQL, Supabase JWT auth, and colocated tests.</li>
+              <li>Computes a personalized HIGH/MEDIUM/LOW safety confidence label per restaurant from the user&rsquo;s allergy profile and severity levels plus structured allergy reviews, with search backed by the Google Places API.</li>
+            </ul>
+            <div class="box-why"><b>Why I built it:</b> For most people, picking a restaurant is fun. For someone with a serious food allergy, it is a risk calculation made with almost no data. I wanted to build the tool that turns that gamble into an informed decision.</div>
+          </td>
+        </tr>
+        <tr class="stat-row row-odd" data-toggle="shoe-recommender">
+          <td class="cell-team" data-label="Project">Basketball Shoe Recommender</td>
+          <td data-label="Stack">FastAPI (Python), Next.js, PostgreSQL + pgvector, RAG</td>
+          <td class="cell-text" data-label="Summary">An AI web app that recommends basketball shoes for a player&rsquo;s playstyle, budget, and aesthetic, with every explanation grounded in real specs and reviews.</td>
+          <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-shoe-recommender">Box Score <span class="arrow">&#9656;</span></button></td>
+        </tr>
+        <tr class="box-score" id="box-shoe-recommender" style="background:#FFFFFF;">
+          <td colspan="4">
+            <div class="box-title">Box Score</div>
+            <ul>
+              <li>FastAPI backend with a RAG engine that retrieves shoe specs and review snippets from Postgres + pgvector, then generates an explained top-3 recommendation as structured JSON for the Next.js frontend.</li>
+              <li>A rate-limited, cached scraping pipeline ingests specs and reviews from four shoe review sites into a single embedded corpus.</li>
+              <li>A strict grounding contract keeps recommendations honest: every claim in an explanation must come from retrieved data, with graceful fallback to constraint-ranked results if the LLM or vector search fails.</li>
+            </ul>
+            <div class="box-why"><b>Why I built it:</b> Every hooper has bought the wrong pair of shoes at least once. A friend and I wanted recommendations grounded in what reviewers actually measured, not marketing copy, so we made "never fabricate a spec" the product&rsquo;s first rule.</div>
+            <div class="box-meta"><b>Status:</b> In development with a 2-person team.</div>
           </td>
         </tr>
         <tr class="stat-row row-even" data-toggle="this-site">
@@ -315,6 +358,7 @@
               <li>Collapsed the stat tables into labeled cards at mobile widths with pure CSS, plus a print stylesheet that opens every box score for a clean printable handout.</li>
               <li>Wired accessible expand/collapse (aria-expanded, aria-controls, visible focus states) in about 40 lines of vanilla JavaScript.</li>
             </ul>
+            <div class="box-why"><b>Why I built it:</b> A basketball-reference page tells you everything about a player in one screen, and I have spent an embarrassing number of hours reading them. I figured a career should be just as readable, so I built mine as a stat page.</div>
             <div class="box-meta"><b>Link:</b> You&rsquo;re looking at it.</div>
           </td>
         </tr>
@@ -357,7 +401,7 @@
           <td class="cell-strong" data-label="Date">May 2026</td>
           <td data-label="Hackathon">KiroHacks Cal Poly</td>
           <td class="cell-team" data-label="Project">IT Pal</td>
-          <td class="cell-nowrap" data-label="Result">2nd Place Grand Prize</td>
+          <td class="cell-nowrap" data-label="Result">2nd Place Grand Prize ($1,500)</td>
           <td class="cell-text" data-label="Summary">An AI desktop assistant, built in Electron, that lets seniors describe a tech problem in plain language and get it fixed in one tap.</td>
           <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-it-pal">Box Score <span class="arrow">&#9656;</span></button></td>
         </tr>
@@ -365,9 +409,9 @@
           <td colspan="6">
             <div class="box-title">Box Score</div>
             <ul>
-              <li>Wrote a spec before any code, with frozen interfaces, a locked 8-action catalog, and strict UX rules (20pt minimum text, 80px tap targets, voice on every interaction).</li>
-              <li>Built a GPT-4o-mini vision pipeline that sees the screen, describes what&rsquo;s there, and acts on it, with local whisper.cpp transcription and edge-tts voice output.</li>
-              <li>Coordinated a 4-person team working in parallel without breaking each other&rsquo;s code, since the spec defined every boundary up front.</li>
+              <li>Built the full assist loop (spoken request, GPT-4o-mini reading the screen, PowerShell executing the fix, spoken confirmation) running end-to-end in under 6 seconds, via a pre-warmed local whisper.cpp model and a single model round trip.</li>
+              <li>Designed for safety over capability: a locked catalog of 8 vetted actions (close scam popups, enlarge text, open apps, adjust volume) so the AI can never improvise a destructive fix on a senior&rsquo;s machine.</li>
+              <li>Coordinated a 4-person team building in parallel against spec-frozen interfaces, shipping a working Electron app with vision, Windows automation, and voice I/O in a single hackathon session.</li>
             </ul>
             <div class="box-meta"><b>Link:</b> <a href="https://devpost.com/software/it-pal" target="_blank" rel="noopener">View on Devpost</a></div>
           </td>
@@ -382,7 +426,7 @@
     <div class="awards-list">
       <div class="award"><b>2024&ndash;2026</b> &middot; Dean's List &times; 6 <span class="muted">(Cal Poly SLO)</span></div>
       <div class="award"><b>2024&ndash;2026</b> &middot; President's List &times; 2 <span class="muted">(Cal Poly SLO)</span></div>
-      <div class="award"><b>2026</b> &middot; <a href="#combine">KiroHacks: 2nd Place</a></div>
+      <div class="award"><b>2026</b> &middot; <a href="#combine">KiroHacks: 2nd Place ($1,500)</a></div>
       <div class="award"><b>2022</b> &middot; National Merit Semifinalist</div>
     </div>
   </section>
@@ -443,3 +487,4 @@
 </script>
 </body>
 </html>
+
