@@ -22,29 +22,57 @@
 
   .page { background:#FFFFFF; min-height:100vh; }
 
-  .masthead { background:#8F5400; padding:14px 24px; display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; border-bottom:4px solid #6e4000; }
-  .masthead .logo { font-family:'Merriweather',serif; font-weight:900; font-size:24px; color:#F5F4F3; letter-spacing:0.3px; }
-  .masthead .logo span { color:#F2E7D5; }
-  .masthead .tagline { font-size:12px; color:#F2E7D5; letter-spacing:1px; }
+  .masthead { background:#FFFFFF; padding:12px 24px; display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; }
+  .masthead .logo { font-family:'Merriweather',serif; font-weight:900; font-size:24px; color:#8F5400; letter-spacing:0.3px; }
+  .masthead .logo span { color:#454340; }
+  .masthead .tagline { font-size:12px; color:#6B6864; letter-spacing:1px; }
+
+  .site-search { margin-left:auto; display:flex; align-items:center; }
+  .site-search input { width:260px; max-width:100%; box-sizing:border-box; font:14px Arial,Helvetica,sans-serif; color:#191818;
+    padding:7px 10px; border:1px solid #C6C3C1; border-radius:3px; background:#FFFFFF; }
+  .site-search input:focus { outline:2px solid #8F5400; outline-offset:-1px; border-color:#8F5400; }
+  .search-jump { margin-right:10px; font:700 12px 'Roboto Condensed',Arial,Helvetica,sans-serif; color:#8F5400; background:none; border:0; padding:0; cursor:pointer; white-space:nowrap; }
+  .search-jump:hover { text-decoration:underline; }
+  .search-jump[hidden] { display:none; }
+  tr.filtered-out, tr.box-score.filtered-out { display:none !important; }
+  tr.no-match[hidden] { display:none !important; }
+  tr.no-match td { padding:12px 8px; color:#6B6864; font-style:italic; }
+
+  .crumbs { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:7px 24px; font-size:12px;
+    color:#F2E7D5; background:#8F5400; border-bottom:4px solid #6e4000; }
+  .crumbs .sep { margin:0 5px; }
+  .crumbs b { color:#FFFFFF; }
 
   .bio { display:flex; gap:22px; padding:22px 24px 18px; flex-wrap:wrap; }
   .headshot { width:150px; height:186px; flex-shrink:0; border-radius:2px; border:1px solid #C6C3C1;
     background:repeating-linear-gradient(135deg, #DEDCDA, #DEDCDA 8px, #E9E7E5 8px, #E9E7E5 16px);
     display:flex; align-items:center; justify-content:center; font-size:11px; color:#6B6864; text-align:center; padding:8px; font-family:monospace; }
   .bio-main { flex:1; min-width:300px; }
-  .bio-name { font-size:34px; font-weight:700; color:#191818; margin:0 0 2px; letter-spacing:-0.3px; }
-  .bio-role { font-size:15px; font-weight:700; color:#191818; margin-bottom:10px; }
+  .bio-name { font-size:34px; font-weight:700; color:#191818; margin:0 0 8px; letter-spacing:-0.3px; }
   .bio-facts { font-size:14px; line-height:1.6; }
   .bio-facts b { font-weight:700; }
+  .bio-facts .dot { margin:0 6px; color:#8F5400; }
 
-  .summary-strip { margin:0 24px 18px; padding:10px 0; display:flex; align-items:center; flex-wrap:wrap; border-top:1px solid #DAD8D6; border-bottom:1px solid #DAD8D6; }
-  .summary-label { padding:2px 24px 2px 0; }
-  .summary-label .kicker { font-weight:700; color:#8F5400; font-size:12px; letter-spacing:0.3px; margin-bottom:2px; }
-  .summary-label .title { font-weight:700; color:#191818; font-size:15px; }
-  .summary-stats { display:grid; grid-template-columns:repeat(3,auto); gap:2px 30px; padding:2px 24px; border-left:1px solid #DAD8D6; align-self:stretch; align-items:center; }
-  .summary-stats .stat-key { font-weight:700; color:#8F5400; font-size:11px; letter-spacing:0.3px; }
-  .summary-stats .stat-val { font-size:15px; color:#191818; }
-  .summary-links { display:flex; align-items:center; gap:20px; padding:2px 0 2px 24px; border-left:1px solid #DAD8D6; font-size:15px; align-self:stretch; }
+  .bling { display:flex; flex-wrap:wrap; gap:6px; list-style:none; margin:12px 0 0; padding:0; }
+  .bling a { display:block; font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; font-size:12px; font-weight:700;
+    color:#191818; background:#F2E7D5; border:1px solid #D9C3A0; border-radius:3px; padding:3px 9px; }
+  .bling a:hover { background:#8F5400; border-color:#8F5400; color:#F5F4F3; text-decoration:none; }
+
+  .summary { margin:0 24px 18px; padding:10px 0; display:flex; align-items:center; flex-wrap:wrap; gap:12px 28px;
+    border-top:1px solid #DAD8D6; border-bottom:1px solid #DAD8D6; }
+  .summary-scroll { overflow-x:auto; }
+  table.summary-table { border-collapse:collapse; font-variant-numeric:tabular-nums; }
+  .summary-table thead th { font-size:11px; font-weight:700; color:#8F5400; letter-spacing:0.3px; text-align:right; padding:0 0 3px 24px; }
+  .summary-table thead th:first-child { text-align:left; padding-left:0; }
+  .summary-table tbody th { text-align:left; font-size:13px; font-weight:700; color:#191818; padding:3px 12px 3px 0; white-space:nowrap; }
+  .summary-table td { text-align:right; font-size:20px; color:#191818; padding:3px 0 3px 24px; }
+  .summary-table tr.career th, .summary-table tr.career td { border-top:1px solid #DAD8D6; }
+  .summary-table .sm { display:none; }
+  .summary-side { flex:1; min-width:240px; border-left:1px solid #DAD8D6; padding-left:24px; align-self:stretch;
+    display:flex; flex-direction:column; justify-content:center; gap:8px; }
+  .summary-seeking { font-size:14px; color:#191818; }
+  .summary-seeking b { color:#8F5400; font-size:11px; letter-spacing:0.3px; margin-right:6px; }
+  .summary-links { display:flex; align-items:center; flex-wrap:wrap; gap:6px 20px; font-size:15px; }
   .summary-links a { display:inline-flex; align-items:center; gap:6px; }
   .badge { display:inline-flex; align-items:center; justify-content:center; width:17px; height:17px; color:#F5F4F3; font-size:9.5px; font-weight:700; }
   .badge-in { border-radius:3px; background:#8F5400; }
@@ -56,28 +84,53 @@
   .section-nav a.active { border-bottom-color:#8F5400; }
   .nav-sub { font-weight:400; color:#6B6864; }
 
-  .section, .bio { scroll-margin-top:54px; }
+  .section, .bio, .sponsor { scroll-margin-top:54px; }
   .section { padding:20px 24px; }
   .section.alt { background:#F5F4F3; }
   .section-head { display:flex; align-items:baseline; gap:14px; margin-bottom:2px; flex-wrap:wrap; }
   .section-title { font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; font-size:22px; font-weight:700; color:#191818; margin:0; }
   .section-sub { font-size:13px; color:#6B6864; }
 
+  .tbl-tools { margin-left:auto; display:flex; gap:16px; font:700 12.5px 'Roboto Condensed',Arial,Helvetica,sans-serif; }
+  .tbl-tools details { position:relative; }
+  .tbl-tools summary { cursor:pointer; color:#8F5400; list-style:none; white-space:nowrap; }
+  .tbl-tools summary::-webkit-details-marker { display:none; }
+  .tbl-tools summary:hover { text-decoration:underline; }
+  .tbl-tools summary:focus-visible { outline:2px solid #8F5400; outline-offset:2px; }
+  .tool-menu { position:absolute; right:0; top:calc(100% + 6px); z-index:20; min-width:210px; padding:4px 0;
+    background:#FFFFFF; border:1px solid #C6C3C1; border-radius:3px; box-shadow:0 4px 14px rgba(25,24,24,.14); }
+  .tool-menu button, .tool-menu a { display:block; width:100%; box-sizing:border-box; text-align:left; padding:7px 14px;
+    font:400 13.5px Arial,Helvetica,sans-serif; color:#191818; background:none; border:0; cursor:pointer; }
+  .tool-menu button:hover, .tool-menu a:hover, .tool-menu button:focus-visible, .tool-menu a:focus-visible { background:#F2E7D5; color:#191818; text-decoration:none; outline:none; }
+  .tool-menu dl { margin:0; padding:6px 14px; width:260px; font:400 13px/1.4 Arial,Helvetica,sans-serif; color:#454340; }
+  .tool-menu dt { font-weight:700; color:#191818; margin-top:6px; }
+  .tool-menu dt:first-child { margin-top:0; }
+  .tool-menu dd { margin:0; }
+
+  .tbl-foot { margin:6px 0 0; font-size:12px; color:#6B6864; }
+
   .table-wrap { overflow-x:auto; }
-  table.stats { width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; }
-  table.stats thead tr { border-bottom:2px solid #8F5400; }
-  table.stats th { text-align:left; padding:5px 8px; font-size:11.5px; color:#8F5400; letter-spacing:0.4px; }
+  table.stats { width:100%; border-collapse:collapse; font-size:13px; margin-top:8px; font-family:'Roboto Condensed',Arial,Helvetica,sans-serif;
+    font-variant-numeric:tabular-nums; }
+  table.stats thead tr { background:#EDEBE9; border-top:1px solid #C6C3C1; border-bottom:1px solid #C6C3C1; }
+  table.stats th { text-align:left; padding:6px 8px; font-size:11.5px; color:#191818; letter-spacing:0.4px; }
+  th[data-tip] { position:relative; cursor:help; }
+  th[data-tip] > span { border-bottom:1px dotted #6B6864; }
+  th[data-tip]::after { content:attr(data-tip); position:absolute; left:4px; top:100%; z-index:5; width:max-content; max-width:220px;
+    background:#191818; color:#F5F4F3; font-size:12px; font-weight:400; letter-spacing:0; line-height:1.35; padding:5px 8px;
+    border-radius:3px; opacity:0; pointer-events:none; transition:opacity .12s; }
+  th[data-tip]:hover::after, th[data-tip]:focus::after { opacity:1; }
+  th[data-tip]:focus-visible { outline:2px solid #8F5400; outline-offset:-2px; }
   table.stats td { padding:6px 8px; }
   tr.stat-row { border-bottom:1px solid #E5E3E1; vertical-align:top; }
   tr.row-even { background:#FFFFFF; }
   tr.row-odd { background:#F5F4F3; }
-  tr.stat-row[data-toggle]:hover { background:#E3D6C4 !important; cursor:pointer; }
+  tr.stat-row[data-toggle]:hover { background:#FFF4CF !important; cursor:pointer; }
 
-  .box-toggle { font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.4px;
-    color:#8F5400; background:none; border:1px solid #8F5400; border-radius:3px; padding:3px 9px;
-    cursor:pointer; white-space:nowrap; }
-  .box-toggle:hover { background:#8F5400; color:#F5F4F3; }
-  .box-toggle:focus-visible { outline:2px solid #8F5400; outline-offset:1px; }
+  .box-toggle { font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; font-size:13px; font-weight:700;
+    color:#8F5400; background:none; border:0; padding:0; cursor:pointer; white-space:nowrap; }
+  .box-toggle:hover { text-decoration:underline; }
+  .box-toggle:focus-visible { outline:2px solid #8F5400; outline-offset:2px; }
   .box-toggle .arrow { color:inherit; font-size:10px; }
 
   .tag-current { display:inline-block; font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; font-size:9.5px; font-weight:700;
@@ -105,6 +158,20 @@
   .award { padding:11px 4px; border-bottom:1px solid #E5E3E1; font-size:14px; }
   .award .muted { color:#6B6864; }
 
+  .transactions { list-style:none; margin:8px 0 0; padding:0; border-top:1px solid #DAD8D6; }
+  .transactions li { padding:9px 4px; border-bottom:1px solid #E5E3E1; font-size:14px; line-height:1.45; }
+  .transactions .muted { color:#6B6864; }
+
+  .sponsor { margin:24px 24px 28px; border:1px solid #D9C3A0; border-top:4px solid #8F5400; background:#FBF6EE; padding:14px 18px; }
+  .sponsor .kicker { font-weight:700; color:#8F5400; font-size:12px; letter-spacing:0.3px; margin-bottom:2px; }
+  .sponsor h2 { font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; font-size:20px; color:#191818; margin:0 0 6px; }
+  .sponsor p { margin:0 0 10px; font-size:14px; line-height:1.5; }
+  .sponsor-actions { display:flex; gap:10px; flex-wrap:wrap; }
+  .sponsor-actions a { font-family:'Roboto Condensed',Arial,Helvetica,sans-serif; font-weight:700; font-size:14px;
+    border:1px solid #8F5400; border-radius:3px; padding:6px 14px; }
+  .sponsor-actions a.primary { background:#8F5400; color:#F5F4F3; }
+  .sponsor-actions a:hover { text-decoration:none; background:#6e4000; border-color:#6e4000; color:#F5F4F3; }
+
   .skills-grid { display:grid; grid-template-columns:auto 1fr; gap:8px 14px; font-size:14px; line-height:1.5; }
   .skills-grid dt { font-weight:700; color:#8F5400; margin:0; }
   .skills-grid dd { margin:0; }
@@ -112,6 +179,13 @@
   .site-footer { background:#191818; color:#B7B4B2; text-align:center; padding:12px; font-size:11px; }
 
   @media (max-width:700px) {
+    .site-search { margin-left:0; width:100%; }
+    .site-search input { flex:1; width:auto; }
+    .summary-side { border-left:0; padding-left:0; }
+    .summary-table .lg { display:none; }
+    .summary-table .sm { display:inline; }
+    .summary-table thead th { padding-left:14px; }
+    .summary-table td { font-size:18px; padding-left:14px; }
     .section-nav { flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
     .section-nav::-webkit-scrollbar { display:none; }
     .box-toggle { margin:6px 0 2px; }
@@ -126,7 +200,10 @@
   }
 
   @media print {
-    .section-nav, .site-footer, .box-toggle, .hint, .badge { display:none; }
+    .section-nav, .site-footer, .box-toggle, .hint, .badge, .crumbs, .sponsor-actions, .site-search, .tbl-tools { display:none; }
+    tr.filtered-out, tr.box-score.filtered-out { display:table-row !important; }
+    tr.no-match { display:none !important; }
+    th[data-tip]::after { display:none; }
     tr.box-score { display:table-row; }
     .section.alt, tr.row-odd, tr.box-score { background:#FFFFFF !important; }
     .masthead { background:none; border-bottom:4px solid #8F5400; }
@@ -141,41 +218,60 @@
   <header class="masthead">
     <div class="logo">isaac-pressman<span>.reference</span></div>
     <div class="tagline">CAREER STATS, HISTORY, AND MORE</div>
+    <div class="site-search" role="search">
+      <span aria-live="polite"><button type="button" class="search-jump" id="search-jump" hidden></button></span>
+      <input type="search" id="site-search" placeholder="Search stats, e.g. &quot;Python&quot;" aria-keyshortcuts="/" title="Press / to search" aria-label="Search experience, projects, and hackathons" autocomplete="off">
+    </div>
   </header>
+
+  <div class="crumbs">
+    <div>Players<span class="sep">&rsaquo;</span>P<span class="sep">&rsaquo;</span><b>Isaac Pressman</b></div>
+    <div>Updated Oct 6, 2026</div>
+  </div>
 
   <div id="bio" class="bio">
     <div class="headshot">HEADSHOT<br>PHOTO</div>
     <div class="bio-main">
       <h1 class="bio-name">Isaac Pressman</h1>
-      <div class="bio-role">Software Engineer</div>
       <div class="bio-facts">
-        <div><b>School:</b> California Polytechnic State University, San Luis Obispo (Cal Poly)</div>
-        <div><b>Degree:</b> B.S. Computer Science (Sep 2024 &ndash; May 2028)</div>
-        <div><b>Location:</b> San Ramon, CA</div>
-        <div><b>Current:</b> Software Engineer Intern, Coherent</div>
-        <div><b>Contact:</b> <a href="mailto:ipressma@calpoly.edu">ipressma@calpoly.edu</a></div>
+        <div><b>Position:</b> Software Engineer (Backend, Infrastructure, AI)<span class="dot">&#9642;</span><b>Shoots:</b> Python, C#</div>
+        <div><b>College:</b> Cal Poly, San Luis Obispo &middot; B.S. Computer Science (Sep 2024 &ndash; May 2028)</div>
+        <div><b>Current Team:</b> Cloudwick, Software Engineer Intern (AI Solutions)</div>
+        <div><b>Experience:</b> 4 teams since 2024</div>
+        <div><b>Draft:</b> Eligible for the Summer 2027 intern class &middot; open to relocation</div>
+        <div><b>Eligibility:</b> U.S. citizen, no visa sponsorship required</div>
+        <div><b>Hometown:</b> San Ramon, CA</div>
+        <div><b>Contact:</b> <a href="mailto:iwpressman@gmail.com">iwpressman@gmail.com</a></div>
       </div>
+      <ul class="bling" aria-label="Honors">
+        <li><a href="#combine">2nd Place &middot; KiroHacks</a></li>
+        <li><a href="#awards">6&times; Dean&rsquo;s List</a></li>
+        <li><a href="#awards">2&times; President&rsquo;s List</a></li>
+        <li><a href="#awards">National Merit Semifinalist</a></li>
+      </ul>
     </div>
   </div>
 
-  <div class="summary-strip">
-    <div class="summary-label">
-      <div class="kicker">SUMMARY</div>
-      <div class="title">Career</div>
+  <div class="summary">
+    <div class="summary-scroll">
+    <table class="summary-table">
+      <thead>
+        <tr><th scope="col">SUMMARY</th><th scope="col"><span class="lg">TEAMS</span><span class="sm" aria-hidden="true">TM</span></th><th scope="col"><span class="lg">INTERNSHIPS</span><span class="sm" aria-hidden="true">INT</span></th><th scope="col"><span class="lg">HACKATHONS</span><span class="sm" aria-hidden="true">HACK</span></th><th scope="col"><span class="lg">PODIUMS</span><span class="sm" aria-hidden="true">POD</span></th><th scope="col"><span class="lg">PROJECTS</span><span class="sm" aria-hidden="true">PROJ</span></th><th scope="col">GPA</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">2026</th><td>3</td><td>3</td><td>2</td><td>1</td><td>&mdash;</td><td>&mdash;</td></tr>
+        <tr class="career"><th scope="row">Career</th><td>4</td><td>3</td><td>2</td><td>1</td><td>5</td><td>3.94</td></tr>
+      </tbody>
+    </table>
     </div>
-    <div class="summary-stats">
-      <div class="stat-key">SEEKING</div>
-      <div class="stat-key">GPA</div>
-      <div class="stat-key">GRAD</div>
-      <div class="stat-val">SWE Intern &middot; Summer 2027</div>
-      <div class="stat-val">3.93</div>
-      <div class="stat-val">May 2028</div>
-    </div>
-    <div class="summary-links">
-      <a href="https://www.linkedin.com/in/isaac-pressman" target="_blank" rel="noopener"><span class="badge badge-in">in</span>LinkedIn</a>
-      <a href="https://github.com/IsaacPressman" target="_blank" rel="noopener"><span class="badge badge-gh">GH</span>GitHub</a>
-      <a href="assets/Isaac_Pressman_resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a href="mailto:ipressma@calpoly.edu">Email</a>
+    <div class="summary-side">
+      <div class="summary-seeking"><b>SEEKING</b>SWE Intern &middot; Summer 2027 &middot; Graduating May 2028</div>
+      <div class="summary-links">
+        <a href="https://www.linkedin.com/in/isaac-pressman" target="_blank" rel="noopener"><span class="badge badge-in">in</span>LinkedIn</a>
+        <a href="https://github.com/IsaacPressman" target="_blank" rel="noopener"><span class="badge badge-gh">GH</span>GitHub</a>
+        <a href="assets/Isaac_Pressman_resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="mailto:iwpressman@gmail.com">Email</a>
+      </div>
     </div>
   </div>
 
@@ -184,94 +280,141 @@
     <a href="#gamelog">Game Log <span class="nav-sub">&middot; Projects</span></a>
     <a href="#combine">Combine <span class="nav-sub">&middot; Hackathons</span></a>
     <a href="#awards">Awards</a>
+    <a href="#transactions">Transactions</a>
     <a href="#background">Coursework &amp; Skills</a>
   </nav>
 
   <section id="stats" class="section">
     <div class="section-head">
       <h2 class="section-title">Per Season Stats</h2>
-      <div class="section-sub">Employment history, presented as career statistics <span class="hint">&middot; open a Box Score for details</span></div>
+      <div class="section-sub">Employment history, presented as career statistics</div>
+      <div class="tbl-tools" data-table="tbl-stats">
+        <details><summary>Share &amp; Export &#9662;</summary>
+          <div class="tool-menu">
+            <button type="button" data-action="copy">Copy link to table</button>
+            <button type="button" data-action="csv">Get table as CSV (for Excel)</button>
+            <a href="assets/Isaac_Pressman_resume.pdf" target="_blank" rel="noopener">Download resume (PDF)</a>
+            <button type="button" data-action="print">Print page</button>
+          </div>
+        </details>
+        <details><summary>Glossary &#9662;</summary>
+          <div class="tool-menu"><dl></dl></div>
+        </details>
+      </div>
     </div>
     <div class="table-wrap">
-    <table class="stats">
+    <table class="stats" id="tbl-stats">
       <thead>
         <tr>
-          <th scope="col">SEASON</th><th scope="col">TEAM</th><th scope="col">POS</th><th scope="col">LOCATION</th><th scope="col">TECH</th><th scope="col">SUMMARY</th><th scope="col" aria-label="Box score"></th>
+          <th scope="col" tabindex="0" data-tip="Dates with the team (employment dates)"><span>SEASON</span></th><th scope="col" tabindex="0" data-tip="Employer"><span>TEAM</span></th><th scope="col" tabindex="0" data-tip="Position (job title)"><span>POS</span></th><th scope="col">LOCATION</th><th scope="col" tabindex="0" data-tip="Main languages and tools used"><span>TECH</span></th><th scope="col">SUMMARY</th><th scope="col" aria-label="Box score"></th>
         </tr>
       </thead>
       <tbody>
-        <tr class="stat-row row-even" data-toggle="coherent">
+        <tr class="stat-row row-even" data-toggle="cloudwick">
+          <td class="cell-strong" data-label="Season">Sep 2026 &ndash; Present</td>
+          <td class="cell-team cell-nowrap" data-label="Team">Cloudwick <span class="tag-current">CURRENT</span></td>
+          <td data-label="Pos">Software Engineer Intern, AI Solutions</td>
+          <td class="cell-nowrap" data-label="Location">Remote (Part-time)</td>
+          <td data-label="Tech">RAG, AWS WAF, CloudFormation</td>
+          <td class="cell-text" data-label="Summary">Hardening a RAG ingestion pipeline and the AWS security around it, so the index stops citing deleted sources and custom API domains stay behind the WAF.</td>
+          <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-cloudwick">Box Score <span class="arrow">&#9656;</span></button></td>
+        </tr>
+        <tr class="box-score" id="box-cloudwick" style="background:#F0EFED;">
+          <td colspan="7">
+            <div class="box-title">Box Score</div>
+            <ul>
+              <li>Designed stale-page reconciliation for a RAG ingestion pipeline, distinguishing confirmed webpage deletions from transient crawl failures before removing stale content from the index and preventing citations to deleted sources.</li>
+              <li>Redesigned AWS WAF integration for custom API domains, identifying request paths that bypassed existing protections and implementing CloudFormation changes to preserve API security.</li>
+            </ul>
+            <div class="box-meta"><b>Note:</b> Season in progress; part-time alongside classes.</div>
+          </td>
+        </tr>
+        <tr class="stat-row row-odd" data-toggle="coherent">
           <td class="cell-strong" data-label="Season">Jun 2026 &ndash; Aug 2026</td>
-          <td class="cell-team cell-nowrap" data-label="Team">Coherent <span class="tag-current">CURRENT</span></td>
+          <td class="cell-team cell-nowrap" data-label="Team">Coherent Corp.</td>
           <td data-label="Pos">Software Engineer Intern</td>
           <td class="cell-nowrap" data-label="Location">Fremont, CA</td>
-          <td data-label="Tech">Python, I2C, CMIS Firmware</td>
-          <td class="cell-text" data-label="Summary">Working on the firmware regression test (FRT) team, building automated validation to catch compatibility issues before optical transceiver firmware upgrades ship.</td>
+          <td data-label="Tech">Python, I2C, CMIS, OSFP Firmware</td>
+          <td class="cell-text" data-label="Summary">Built Python stress-testing and coverage automation for optical transceiver firmware, cutting manual OSFP validation from 3 hours to 30 minutes and expanding firmware coverage by 8%.</td>
           <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-coherent">Box Score <span class="arrow">&#9656;</span></button></td>
         </tr>
         <tr class="box-score" id="box-coherent" style="background:#F0EFED;">
           <td colspan="7">
             <div class="box-title">Box Score</div>
             <ul>
-              <li>Designing I2C-based CDB capability validation checks for CMIS transceiver firmware upgrades, preventing unsupported upgrade commands and reducing the risk of bricked modules or incompatible image deployments.</li>
+              <li>Built a Python stress-testing framework exercising thousands of I2C operations across bus speeds and I/O timing conditions, cutting manual OSFP firmware validation from 3 hours to 30 minutes.</li>
+              <li>Designed and implemented Python automation for previously unexercised firmware paths after auditing existing test suites, expanding firmware coverage by 8%.</li>
+              <li>Diagnosed firmware defects in lane-control and CMIS-compliance behavior by correlating automated test results with device logs and partnering with firmware engineers to isolate root causes before release.</li>
             </ul>
-            <div class="box-meta"><b>Note:</b> Season in progress; stats through July 2026.</div>
           </td>
         </tr>
-        <tr class="stat-row row-odd" data-toggle="teradyne">
+        <tr class="stat-row row-even" data-toggle="teradyne">
           <td class="cell-strong" data-label="Season">Jan 2026 &ndash; Jun 2026</td>
           <td class="cell-team" data-label="Team">Teradyne</td>
           <td data-label="Pos">Software Engineer Intern</td>
           <td class="cell-nowrap" data-label="Location">Agoura Hills, CA</td>
           <td data-label="Tech">C#, .NET, gRPC, Playwright, React</td>
-          <td class="cell-text" data-label="Summary">Bridged IG-XL&rsquo;s legacy .NET codebase with modern tooling over gRPC and expanded its automated test coverage, working on Teradyne&rsquo;s UltraFLEX test program software.</td>
+          <td class="cell-text" data-label="Summary">Bridged IG-XL&rsquo;s legacy .NET codebase to modern tooling over gRPC to power the nightly CI smoke suite, and raised firmware test coverage from 85% to 95% with an LLM-driven test generator.</td>
           <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-teradyne">Box Score <span class="arrow">&#9656;</span></button></td>
         </tr>
         <tr class="box-score" id="box-teradyne" style="background:#F0EFED;">
           <td colspan="7">
             <div class="box-title">Box Score</div>
             <ul>
-              <li>Architected an LLM-driven test generation framework in C# for embedded firmware validation, increasing coverage from 85% to 99% and uncovering 100+ driver and control-path edge cases.</li>
-              <li>Engineered a gRPC bridge between .NET 4.6 and .NET 10 to enable Playwright-driven automation, powering the full nightly smoke test suite for a React-based scan pattern visualization tool.</li>
-              <li>Refactored 15,000+ lines of legacy C# test infrastructure to eliminate duplicated logic across hardware control paths, reducing code redundancy by 73%.</li>
+              <li>Engineered a gRPC bridge across incompatible .NET 4.6 and .NET 10 runtimes, enabling a legacy C# system to control Playwright automation and power the full nightly CI smoke test suite for a React-based scan pattern visualization tool.</li>
+              <li>Architected an LLM-driven framework in C# that auto-generates firmware validation cases, increasing coverage from 85% to 95% and uncovering 100+ driver and control-path edge cases.</li>
+              <li>Refactored 15,000+ lines of legacy C# system components to eliminate duplicated logic across hardware control paths, reducing code redundancy by 73%.</li>
               <li>Contributed to IG-XL scan test functionality on the Teradyne UltraFlex platform, supporting ATPG stuck-at fault detection via serial scan pattern shift and response capture.</li>
             </ul>
           </td>
         </tr>
-        <tr class="stat-row row-even" data-toggle="berkeley">
+        <tr class="stat-row row-odd" data-toggle="berkeley">
           <td class="cell-strong" data-label="Season">Aug 2024 &ndash; Sep 2025</td>
           <td class="cell-team" data-label="Team">UC Berkeley Optometry</td>
           <td data-label="Pos">Research Software Developer</td>
           <td class="cell-nowrap" data-label="Location">Berkeley, CA</td>
           <td data-label="Tech">Python, OpenCV, NumPy</td>
-          <td class="cell-text" data-label="Summary">Built a computer vision pipeline for optometry research that automated tear film thickness analysis from clinical video, matching commercial-grade accuracy at a fraction of the cost.</td>
+          <td class="cell-text" data-label="Summary">Built a computer vision pipeline for optometry research that automated tear film thickness analysis from clinical video: 13nm accuracy, matching $20k+ commercial systems, at 30&times; the throughput of manual analysis.</td>
           <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-berkeley">Box Score <span class="arrow">&#9656;</span></button></td>
         </tr>
         <tr class="box-score" id="box-berkeley" style="background:#F0EFED;">
           <td colspan="7">
             <div class="box-title">Box Score</div>
             <ul>
-              <li>Developed a Python (OpenCV, NumPy) computer vision pipeline to measure tear film lipid thickness with 13nm accuracy, matching $20k+ commercial physical systems.</li>
-              <li>Built an automated segmentation system for 100+ clinical videos with pupil/iris detection across 500+ frames each.</li>
+              <li>Developed a Python (OpenCV, NumPy) computer vision pipeline to measure tear film lipid thickness with 13nm accuracy, matching $20k+ commercial measurement systems.</li>
+              <li>Automated pupil/iris segmentation across 50K+ clinical video frames, reducing analysis from 5 minutes to 10 seconds per video while maintaining research-grade accuracy, enabling 30&times; faster research throughput.</li>
               <li>Generated a physics-based RGB lookup table using Fresnel equations and CIE color models, enabling pixel-level lipid layer thickness maps and per-frame statistical analysis.</li>
-              <li>Reduced video analysis time from 5 minutes to 10 seconds per video, enabling 10&times; faster research throughput at research-grade accuracy.</li>
             </ul>
           </td>
         </tr>
       </tbody>
     </table>
     </div>
+    <p class="tbl-foot">CURRENT = season in progress. Click any row to open its Box Score.</p>
   </section>
 
   <section id="gamelog" class="section alt">
     <div class="section-head">
       <h2 class="section-title">Game Log</h2>
-      <div class="section-sub">Personal projects <span class="hint">&middot; open a Box Score for details</span></div>
+      <div class="section-sub">Personal projects</div>
+      <div class="tbl-tools" data-table="tbl-gamelog">
+        <details><summary>Share &amp; Export &#9662;</summary>
+          <div class="tool-menu">
+            <button type="button" data-action="copy">Copy link to table</button>
+            <button type="button" data-action="csv">Get table as CSV (for Excel)</button>
+            <a href="assets/Isaac_Pressman_resume.pdf" target="_blank" rel="noopener">Download resume (PDF)</a>
+            <button type="button" data-action="print">Print page</button>
+          </div>
+        </details>
+        <details><summary>Glossary &#9662;</summary>
+          <div class="tool-menu"><dl></dl></div>
+        </details>
+      </div>
     </div>
     <div class="table-wrap">
-    <table class="stats">
+    <table class="stats" id="tbl-gamelog">
       <thead>
-        <tr><th scope="col">PROJECT</th><th scope="col">STACK</th><th scope="col">SUMMARY</th><th scope="col" aria-label="Box score"></th></tr>
+        <tr><th scope="col">PROJECT</th><th scope="col" tabindex="0" data-tip="Languages, frameworks, and infrastructure used"><span>STACK</span></th><th scope="col">SUMMARY</th><th scope="col" aria-label="Box score"></th></tr>
       </thead>
       <tbody>
         <tr class="stat-row row-even" data-toggle="dungeon-crawler">
@@ -327,9 +470,9 @@
           </td>
         </tr>
         <tr class="stat-row row-odd" data-toggle="shoe-recommender">
-          <td class="cell-team" data-label="Project">Basketball Shoe Recommender</td>
-          <td data-label="Stack">FastAPI (Python), Next.js, PostgreSQL + pgvector, RAG</td>
-          <td class="cell-text" data-label="Summary">An AI web app that recommends basketball shoes for a player&rsquo;s playstyle, budget, and aesthetic, with every explanation grounded in real specs and reviews.</td>
+          <td class="cell-team" data-label="Project">The Shoe Assist</td>
+          <td data-label="Stack">FastAPI (Python), Next.js, PostgreSQL + pgvector, RAG, Docker, Kubernetes, Terraform</td>
+          <td class="cell-text" data-label="Summary">A full-stack AI platform that recommends basketball shoes for a player&rsquo;s playstyle, budget, and aesthetic, with every explanation grounded in real specs and reviews, deployed on Kubernetes with Terraform.</td>
           <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-shoe-recommender">Box Score <span class="arrow">&#9656;</span></button></td>
         </tr>
         <tr class="box-score" id="box-shoe-recommender" style="background:#FFFFFF;">
@@ -339,9 +482,10 @@
               <li>FastAPI backend with a RAG engine that retrieves shoe specs and review snippets from Postgres + pgvector, then generates an explained top-3 recommendation as structured JSON for the Next.js frontend.</li>
               <li>A rate-limited, cached scraping pipeline ingests specs and reviews from four shoe review sites into a single embedded corpus.</li>
               <li>A strict grounding contract keeps recommendations honest: every claim in an explanation must come from retrieved data, with graceful fallback to constraint-ranked results if the LLM or vector search fails.</li>
+              <li>Provisioned Kubernetes infrastructure as code with Terraform; deployed containerized Next.js and FastAPI services with ingress, health probes, horizontal pod autoscaling, and zero-downtime rollouts via GitHub Actions CI/CD.</li>
             </ul>
             <div class="box-why"><b>Why I built it:</b> Every hooper has bought the wrong pair of shoes at least once. A friend and I wanted recommendations grounded in what reviewers actually measured, not marketing copy, so we made "never fabricate a spec" the product&rsquo;s first rule.</div>
-            <div class="box-meta"><b>Status:</b> In development with a 2-person team.</div>
+            <div class="box-meta"><b>Team:</b> Built with a 2-person team.</div>
           </td>
         </tr>
         <tr class="stat-row row-even" data-toggle="this-site">
@@ -356,7 +500,7 @@
             <ul>
               <li>Designed a basketball-reference-inspired layout (stat tables, expandable box scores, and a scroll-spy section nav) in one hand-written HTML file with no build step.</li>
               <li>Collapsed the stat tables into labeled cards at mobile widths with pure CSS, plus a print stylesheet that opens every box score for a clean printable handout.</li>
-              <li>Wired accessible expand/collapse (aria-expanded, aria-controls, visible focus states) in about 40 lines of vanilla JavaScript.</li>
+              <li>Wired accessible expand/collapse (aria-expanded, aria-controls, visible focus states), live search across every table, and per-table CSV export in vanilla JavaScript.</li>
             </ul>
             <div class="box-why"><b>Why I built it:</b> A basketball-reference page tells you everything about a player in one screen, and I have spent an embarrassing number of hours reading them. I figured a career should be just as readable, so I built mine as a stat page.</div>
             <div class="box-meta"><b>Link:</b> You&rsquo;re looking at it.</div>
@@ -365,17 +509,31 @@
       </tbody>
     </table>
     </div>
+    <p class="tbl-foot">Click any row to open its Box Score. Personal and team projects, built outside of work.</p>
   </section>
 
   <section id="combine" class="section">
     <div class="section-head">
       <h2 class="section-title">Combine</h2>
-      <div class="section-sub">Hackathon invitations and results <span class="hint">&middot; open a Box Score for details</span></div>
+      <div class="section-sub">Hackathon projects and results</div>
+      <div class="tbl-tools" data-table="tbl-combine">
+        <details><summary>Share &amp; Export &#9662;</summary>
+          <div class="tool-menu">
+            <button type="button" data-action="copy">Copy link to table</button>
+            <button type="button" data-action="csv">Get table as CSV (for Excel)</button>
+            <a href="assets/Isaac_Pressman_resume.pdf" target="_blank" rel="noopener">Download resume (PDF)</a>
+            <button type="button" data-action="print">Print page</button>
+          </div>
+        </details>
+        <details><summary>Glossary &#9662;</summary>
+          <div class="tool-menu"><dl></dl></div>
+        </details>
+      </div>
     </div>
     <div class="table-wrap">
-    <table class="stats">
+    <table class="stats" id="tbl-combine">
       <thead>
-        <tr><th scope="col">DATE</th><th scope="col">HACKATHON</th><th scope="col">PROJECT</th><th scope="col">RESULT</th><th scope="col">SUMMARY</th><th scope="col" aria-label="Box score"></th></tr>
+        <tr><th scope="col">DATE</th><th scope="col">HACKATHON</th><th scope="col">PROJECT</th><th scope="col" tabindex="0" data-tip="Final placement and prize, if any"><span>RESULT</span></th><th scope="col">SUMMARY</th><th scope="col" aria-label="Box score"></th></tr>
       </thead>
       <tbody>
         <tr class="stat-row row-even" data-toggle="redundant">
@@ -399,9 +557,9 @@
         </tr>
         <tr class="stat-row row-odd" data-toggle="it-pal">
           <td class="cell-strong" data-label="Date">May 2026</td>
-          <td data-label="Hackathon">KiroHacks Cal Poly</td>
+          <td data-label="Hackathon">KiroHacks Cal Poly (AWS-sponsored)</td>
           <td class="cell-team" data-label="Project">IT Pal</td>
-          <td class="cell-nowrap" data-label="Result">2nd Place Grand Prize ($1,500)</td>
+          <td class="cell-nowrap" data-label="Result">2nd Place ($1,500) of 228</td>
           <td class="cell-text" data-label="Summary">An AI desktop assistant, built in Electron, that lets seniors describe a tech problem in plain language and get it fixed in one tap.</td>
           <td class="cell-nowrap"><button class="box-toggle" aria-expanded="false" aria-controls="box-it-pal">Box Score <span class="arrow">&#9656;</span></button></td>
         </tr>
@@ -419,6 +577,7 @@
       </tbody>
     </table>
     </div>
+    <p class="tbl-foot">Result is final placement among all teams. Click any row to open its Box Score.</p>
   </section>
 
   <section id="awards" class="section alt" style="padding-bottom:32px;">
@@ -426,22 +585,46 @@
     <div class="awards-list">
       <div class="award"><b>2024&ndash;2026</b> &middot; Dean's List &times; 6 <span class="muted">(Cal Poly SLO)</span></div>
       <div class="award"><b>2024&ndash;2026</b> &middot; President's List &times; 2 <span class="muted">(Cal Poly SLO)</span></div>
-      <div class="award"><b>2026</b> &middot; <a href="#combine">KiroHacks: 2nd Place ($1,500)</a></div>
+      <div class="award"><b>2026</b> &middot; <a href="#combine">KiroHacks Cal Poly: 2nd Place ($1,500) among 228 participants</a></div>
       <div class="award"><b>2022</b> &middot; National Merit Semifinalist</div>
     </div>
   </section>
 
-  <section id="background" class="section" style="padding-bottom:32px;">
+  <section id="transactions" class="section" style="padding-bottom:32px;">
+    <h2 class="section-title">Transactions</h2>
+    <div class="section-sub" style="margin-bottom:8px;">Signings and moves, most recent first</div>
+    <ul class="transactions">
+      <li><b>September 2026:</b> Signed by <a href="#stats">Cloudwick</a> to a part-time contract as a Software Engineer Intern, AI Solutions. <span class="muted">(Remote)</span></li>
+      <li><b>June 2026:</b> Signed by <a href="#stats">Coherent Corp.</a> as a Software Engineer Intern for the summer season. <span class="muted">(Fremont, CA)</span></li>
+      <li><b>January 2026:</b> Signed by <a href="#stats">Teradyne</a> as a Software Engineer Intern. <span class="muted">(Agoura Hills, CA)</span></li>
+      <li><b>September 2024:</b> Committed to Cal Poly, San Luis Obispo to study Computer Science.</li>
+      <li><b>August 2024:</b> Signed by <a href="#stats">UC Berkeley Optometry</a> as a Research Software Developer. <span class="muted">(Berkeley, CA)</span></li>
+    </ul>
+  </section>
+
+  <section id="background" class="section alt" style="padding-bottom:32px;">
     <h2 class="section-title">Coursework &amp; Skills</h2>
     <div class="section-sub" style="margin-bottom:8px;">Academic background and technical toolkit</div>
     <dl class="skills-grid">
-      <dt>Coursework:</dt><dd>Data Structures, Systems Programming, Algorithms, Computer Security, Theory of Computation, Database Systems</dd>
-      <dt>Languages:</dt><dd>Java, Python, C, C#, JavaScript, TypeScript, SQL, HTML/CSS/SCSS</dd>
-      <dt>Frameworks:</dt><dd>Django, .NET, React, React Native, Node.js, Express.js, FastAPI, Unity</dd>
+      <dt>Coursework:</dt><dd>Data Structures, Computer Organization, Object Oriented Programming, Systems Programming, Algorithms, Operating Systems, Computer Security, Database Systems, Intro to Data Science, Theory of Computation</dd>
+      <dt>Languages:</dt><dd>Java, Python (OpenCV, NumPy, SciPy), C/C++, C#, JavaScript, TypeScript, SQL, HTML/CSS</dd>
+      <dt>Frameworks:</dt><dd>Django, .NET, React, React Native, Node.js, Express.js, FastAPI, Unity, Electron</dd>
+      <dt>Technologies:</dt><dd>Kubernetes, Git, Docker, Terraform, AWS (S3, EC2, IAM), Playwright, gRPC, I2C, Linux/Unix, Bash</dd>
     </dl>
   </section>
 
-  <footer class="site-footer">isaac-pressman.reference &middot; built by hand &middot; one HTML file, no frameworks &middot; updated July 2026</footer>
+  <aside id="sponsor" class="sponsor">
+    <div class="kicker">SPONSOR THIS PLAYER&rsquo;S PAGE</div>
+    <h2>Recruiting for Summer 2027? Get in touch.</h2>
+    <p>Available for a Summer 2027 software engineering internship in backend, infrastructure, or AI. Open to relocation. U.S. citizen, no visa sponsorship required.</p>
+    <div class="sponsor-actions">
+      <a class="primary" href="mailto:iwpressman@gmail.com">Email Isaac</a>
+      <a href="assets/Isaac_Pressman_resume.pdf" target="_blank" rel="noopener">View Resume</a>
+      <a href="https://www.linkedin.com/in/isaac-pressman" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </aside>
+
+  <footer class="site-footer">isaac-pressman.reference &middot; built by hand &middot; one HTML file, no frameworks</footer>
 </div>
 
 <script>
@@ -484,6 +667,134 @@
     if (!spyQueued) { spyQueued = true; requestAnimationFrame(spy); }
   }, { passive: true });
   spy();
+
+  // Search: filter every stat table's rows (box score text included) as you type
+  var searchInput = document.getElementById('site-search');
+  var searchJump = document.getElementById('search-jump');
+  var statTables = Array.prototype.slice.call(document.querySelectorAll('table.stats'));
+  statTables.forEach(function (table) {
+    var empty = document.createElement('tr');
+    empty.className = 'no-match';
+    empty.hidden = true;
+    empty.innerHTML = '<td colspan="' + table.querySelectorAll('thead th').length + '"></td>';
+    table.querySelector('tbody').appendChild(empty);
+  });
+  function firstMatch() {
+    return document.querySelector('tr.stat-row:not(.filtered-out)');
+  }
+  function filterTables() {
+    var q = searchInput.value.trim().toLowerCase();
+    var total = 0, shown = 0;
+    statTables.forEach(function (table) {
+      var tableShown = 0;
+      table.querySelectorAll('tr.stat-row').forEach(function (row) {
+        var box = document.getElementById('box-' + row.dataset.toggle);
+        var text = (row.textContent + ' ' + (box ? box.textContent : '')).toLowerCase();
+        var match = !q || text.indexOf(q) !== -1;
+        row.classList.toggle('filtered-out', !match);
+        if (box) box.classList.toggle('filtered-out', !match);
+        total++;
+        if (match) { shown++; tableShown++; }
+      });
+      var empty = table.querySelector('tr.no-match');
+      empty.hidden = !q || tableShown > 0;
+      empty.firstChild.textContent = 'No rows match “' + searchInput.value.trim() + '”.';
+    });
+    searchJump.hidden = !q;
+    searchJump.textContent = shown ? shown + ' of ' + total + ' rows match ↓' : 'No matches';
+    searchJump.disabled = !shown;
+  }
+  searchInput.addEventListener('input', filterTables);
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && firstMatch()) { e.preventDefault(); firstMatch().scrollIntoView({ block: 'center' }); }
+    if (e.key === 'Escape') { searchInput.value = ''; filterTables(); }
+  });
+  searchJump.addEventListener('click', function () {
+    if (firstMatch()) firstMatch().scrollIntoView({ block: 'center' });
+  });
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement && document.activeElement.tagName;
+    if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); searchInput.focus(); }
+  });
+
+  // Share & Export and Glossary menus
+  function csvCell(text) {
+    text = text.replace(/\s+/g, ' ').trim();
+    return /[",\n]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
+  }
+  function downloadCSV(table) {
+    var heads = Array.prototype.map.call(table.querySelectorAll('thead th'), function (th) { return th.textContent.trim(); });
+    var lines = [heads.filter(Boolean).map(csvCell).join(',')];
+    table.querySelectorAll('tr.stat-row:not(.filtered-out)').forEach(function (row) {
+      var cells = [];
+      Array.prototype.forEach.call(row.children, function (td, i) {
+        if (!heads[i]) return;
+        var clone = td.cloneNode(true);
+        clone.querySelectorAll('.tag-current').forEach(function (t) { t.remove(); });
+        cells.push(csvCell(clone.textContent));
+      });
+      lines.push(cells.join(','));
+    });
+    var url = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv' }));
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'isaac-pressman-' + table.id.slice(4) + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+  function copyText(text, onDone) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { onDone(true); }, function () { onDone(false); });
+      return;
+    }
+    var field = document.createElement('textarea');
+    field.value = text;
+    field.style.position = 'fixed';
+    field.style.opacity = '0';
+    document.body.appendChild(field);
+    field.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (err) {}
+    field.remove();
+    onDone(ok);
+  }
+  document.querySelectorAll('.tbl-tools').forEach(function (tools) {
+    var table = document.getElementById(tools.dataset.table);
+    var glossary = tools.querySelector('dl');
+    table.querySelectorAll('th[data-tip]').forEach(function (th) {
+      var dt = document.createElement('dt');
+      var dd = document.createElement('dd');
+      dt.textContent = th.textContent.trim();
+      dd.textContent = th.dataset.tip;
+      glossary.appendChild(dt);
+      glossary.appendChild(dd);
+    });
+    tools.querySelectorAll('button[data-action]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var action = btn.dataset.action;
+        if (action === 'csv') downloadCSV(table);
+        if (action === 'print') window.print();
+        if (action === 'copy') {
+          var label = btn.textContent;
+          copyText(location.href.split('#')[0] + '#' + table.closest('section').id, function (ok) {
+            btn.textContent = ok ? 'Link copied' : 'Copy failed';
+            setTimeout(function () { btn.textContent = label; }, 1500);
+          });
+          return;
+        }
+        btn.closest('details').open = false;
+      });
+    });
+  });
+  function closeMenus(except) {
+    document.querySelectorAll('.tbl-tools details[open]').forEach(function (d) { if (d !== except) d.open = false; });
+  }
+  document.addEventListener('click', function (e) {
+    closeMenus(e.target.closest ? e.target.closest('.tbl-tools details') : null);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenus(null); });
 </script>
 </body>
 </html>
